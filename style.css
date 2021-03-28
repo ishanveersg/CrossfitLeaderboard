@@ -1,0 +1,14 @@
+body {
+    font: normal medium/1.4 sans-serif;
+}
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+th, td {
+    padding: 0.25rem;
+    text-align: left;
+    border: 1px solid #ccc;
+}
