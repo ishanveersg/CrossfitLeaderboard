@@ -54,6 +54,18 @@
                         $row["identified_gender"] . "</td></tr>";
                 }
             }
+            else {
+                $query = "SELECT * FROM athletes";
+                $result = pg_query($conn, $query);
+                while ($row = pg_fetch_assoc($result)) {
+                    echo "<tr><td>" .
+                        $row["id"] . "</td><td>" .
+                        $row["identifier"] . "</td><td>" .
+                        $row["name"] . "</td><td>" .
+                        $row["dob"] . "</td><td>" .
+                        $row["identified_gender"] . "</td></tr>";
+                }
+            }
         }
         ?>
     </table>
