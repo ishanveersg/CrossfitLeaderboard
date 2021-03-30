@@ -16,6 +16,9 @@
                     <input type="text" class="form-control" name="name" placeholder="Filter by name" aria-label="...">
             </div>
             <div class="form-group w-100">
+                <input class="form-control" name="date" placeholder="Filter by date " aria-label="...">
+            </div>
+            <div class="form-group w-100">
                 <input type="submit" name="submit" class="btn-primary" >
             </div>
         </form>
@@ -23,12 +26,14 @@
 </div>
 <div class="row container-fluid w-75 m-auto">
     <table class="table table-striped table-hover">
-        <tr>
-            <th>Name</th>
-            <th>D.O.B</th>
-            <th>Identified Gender</th>
-            <th>Nationality</th>
-        </tr>
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>D.O.B</th>
+                <th>Identified Gender</th>
+                <th>Nationality</th>
+            </tr>
+        </thead>
         <?php
         require_once 'includes/php/postgreSQL_connect.php';
         /**
