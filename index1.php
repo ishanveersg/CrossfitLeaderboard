@@ -35,16 +35,15 @@
         /**
          * @var string $conn
          */
-        if(isset($POST['submit'])){
-            $id = $_POST['id'];
-            $identifier = $_POST['identifier'];
+        if(isset($_POST['submit'])){
+            //$id = $_POST['id'];
+            //$identifier = $_POST['identifier'];
             $name = $_POST['name'];
-            $dob = $_POST['dob'];
-            $identified_gender = $_POST['identified_gender'];
+            //$dob = $_POST['dob'];
+            //$identified_gender = $_POST['identified_gender'];
 
             if($name != "") {
-                echo "Ti doudou gang";
-                $query = "SELECT * FROM athletes WHERE name='$name'";
+                $query = "SELECT * FROM athletes where name='$name'";
                 $result = pg_query($conn, $query);
                 while ($row = pg_fetch_assoc($result)) {
                     echo "<tr><td>" .
@@ -56,7 +55,6 @@
                 }
             }
         }
-
         ?>
     </table>
 </div>
