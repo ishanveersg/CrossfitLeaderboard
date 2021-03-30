@@ -35,6 +35,16 @@
         /**
          * @var string $conn
          */
+        function displayTable($res){
+            while ($row = pg_fetch_assoc($res)) {
+                echo "<tr><td>" .
+                    $row["id"] . "</td><td>" .
+                    $row["identifier"] . "</td><td>" .
+                    $row["name"] . "</td><td>" .
+                    $row["dob"] . "</td><td>" .
+                    $row["identified_gender"] . "</td></tr>";
+            }
+        }
         if(isset($_POST['submit'])){
             //$id = $_POST['id'];
             //$identifier = $_POST['identifier'];
@@ -45,26 +55,12 @@
             if($name != "") {
                 $query = "SELECT * FROM athletes where name='$name'";
                 $result = pg_query($conn, $query);
-                while ($row = pg_fetch_assoc($result)) {
-                    echo "<tr><td>" .
-                        $row["id"] . "</td><td>" .
-                        $row["identifier"] . "</td><td>" .
-                        $row["name"] . "</td><td>" .
-                        $row["dob"] . "</td><td>" .
-                        $row["identified_gender"] . "</td></tr>";
-                }
+                displayTable($result);
             }
             else {
                 $query = "SELECT * FROM athletes";
                 $result = pg_query($conn, $query);
-                while ($row = pg_fetch_assoc($result)) {
-                    echo "<tr><td>" .
-                        $row["id"] . "</td><td>" .
-                        $row["identifier"] . "</td><td>" .
-                        $row["name"] . "</td><td>" .
-                        $row["dob"] . "</td><td>" .
-                        $row["identified_gender"] . "</td></tr>";
-                }
+                displayTable($result);
             }
         }
         ?>
