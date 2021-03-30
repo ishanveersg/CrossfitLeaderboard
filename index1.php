@@ -24,11 +24,10 @@
 <div class="row container-fluid w-75 m-auto">
     <table class="table table-striped table-hover">
         <tr>
-            <th>ID</th>
-            <th>Identifier</th>
             <th>Name</th>
             <th>D.O.B</th>
             <th>Identified Gender</th>
+            <th>Nationality</th>
         </tr>
         <?php
         require_once 'includes/php/postgreSQL_connect.php';
@@ -38,11 +37,12 @@
         function displayTable($res){
             while ($row = pg_fetch_assoc($res)) {
                 echo "<tr><td>" .
-                    $row["id"] . "</td><td>" .
-                    $row["identifier"] . "</td><td>" .
+                    //$row["id"] . "</td><td>" .
+                    //$row["identifier"] . "</td><td>" .
                     $row["name"] . "</td><td>" .
                     $row["dob"] . "</td><td>" .
-                    $row["identified_gender"] . "</td></tr>";
+                    $row["identified_gender"] . "</td><td>" .
+                    $row["nationality"] . "</td></tr>";
             }
         }
         if(isset($_POST['submit'])){
