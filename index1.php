@@ -10,12 +10,12 @@
 </head>
 <body>
 <div class="container">
-    <div class="row">
+    <div class="row mt-3">
         <form action="index1.php" method="POST">
-            <div class="form-group">
+            <div class="form-group w-100">
                     <input type="text" class="form-control" name="name" placeholder="Filter by name" aria-label="...">
             </div>
-            <div class="form-group">
+            <div class="form-group w-100">
                 <input type="submit" name="submit" class="btn-primary" >
             </div>
         </form>
@@ -53,7 +53,7 @@
             //$identified_gender = $_POST['identified_gender'];
 
             if($name != "") {
-                $query = "SELECT * FROM athletes where name='$name'";
+                $query = "SELECT * FROM athletes WHERE name LIKE'%$name%'";
                 $result = pg_query($conn, $query);
                 displayTable($result);
             }
