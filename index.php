@@ -15,9 +15,8 @@
         <th>dob</th>
         <th>Identified Gender</th>
     </tr>
-
     <?php
-    require_once 'includes/postgreSQL_connect.php';
+    require_once 'includes/php/postgreSQL_connect.php';
     /**
      * @var string $conn
      */
