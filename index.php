@@ -11,7 +11,7 @@
 <body style="font-family: sans-serif">
 <div class="container">
     <div class="row mt-3">
-        <form action="index1.php" method="POST">
+        <form action="index.php" method="POST">
             <div class="form-group w-100">
                     <input type="text" class="form-control" name="name" placeholder="Filter by name" aria-label="...">
             </div>
