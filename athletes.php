@@ -59,7 +59,7 @@
             //$identified_gender = $_POST['identified_gender'];
 
             if($name != "") {
-                $query = "SELECT * FROM athletes WHERE name LIKE '%$name%'";
+                $query = "SELECT * FROM athletes WHERE name LIKE lower('%$name%')";
                 $result = pg_query($conn, $query);
                 displayTable($result);
             }

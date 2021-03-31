@@ -44,7 +44,7 @@
             $name = $_POST['name'];
 
             if($name != "") {
-                $query = "SELECT * FROM competitions WHERE name LIKE '%$name%'";
+                $query = "SELECT * FROM competitions WHERE name LIKE lower('%$name%')";
                 $result = pg_query($conn, $query);
                 displayTable($result);
             }

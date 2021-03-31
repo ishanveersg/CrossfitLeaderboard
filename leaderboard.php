@@ -25,8 +25,8 @@
             <th>Gender</th>
             <th>Nationality</th>
             <th>Points</th>
-            <th>event1</th>
-            <th>event2</th>
+            <th>Event1</th>
+            <th>Event2</th>
         </tr>
         </thead>
         <?php
@@ -38,7 +38,7 @@
             while ($row = pg_fetch_assoc($res)) {
                 echo "<tr><td>" .
                     $row["name"] . "</td><td>" .
-                    $row["identified_gender"] . "</td><td>" .
+                    $row["gender"] . "</td><td>" .
                     $row["nationality"] . "</td><td>" .
                     $row["points"] . "</td><td>" .
                     $row["event1"] . "</td><td>" .
@@ -48,7 +48,7 @@
         if(isset($_POST['submit'])){
             $name = $_POST['name'];
             if($name != "") {
-                $query = "SELECT * FROM athletes WHERE name LIKE '%$name%'";
+                $query = "SELECT * FROM athletes WHERE name LIKE lower('%$name%')";
                 $result = pg_query($conn, $query);
                 displayTable($result);
             }
