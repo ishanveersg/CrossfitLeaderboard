@@ -1,76 +1,26 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <title>Athletes Leaderboard</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Choose your table</title>
     <link rel="stylesheet" type="text/css" href="includes/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="includes/css/jquery-ui.css">
-    <script type="text/javascript" src="includes/js/bootstrap.js"></script>
-    <script type="text/javascript" src="includes/js/jquery-ui.js"></script>
 </head>
 <body style="font-family: sans-serif">
 <div class="container">
-    <div class="row mt-3">
-        <form action="index.php" method="POST">
-            <div class="form-group w-100">
-                    <input type="text" class="form-control" name="name" placeholder="Filter by name" aria-label="...">
-            </div>
-            <div class="form-group w-100">
-                <input type="submit" name="submit" class="btn-dark" >
+    <div class="row mt-5 justify-content-center text-center">
+        <form action="athletes.php" method="post">
+            <div class="form-group">
+                <input type="submit" name="athletes" class="btn-dark btn-lg" value="Athletes">
             </div>
         </form>
     </div>
 </div>
-<div class="row container-fluid w-75 m-auto">
-    <table class="table table-striped table-hover">
-        <thead class="thead-dark">
-            <tr>
-                <th>Name</th>
-                <th>D.O.B</th>
-                <th>Identified Gender</th>
-                <th>Nationality</th>
-            </tr>
-        </thead>
-        <?php
-        require_once 'includes/php/postgreSQL_connect.php';
-        /**
-         * @var string $conn
-         */
-        //$orderType = ($_GET['order'] == 'desc')? 'asc' : 'desc';
-        //$orderType = 'ASC';
-        //$sort_arrow = 'includes/media/sort_arrow.svg';
-
-        function displayTable($res){
-            while ($row = pg_fetch_assoc($res)) {
-                echo "<tr><td>" .
-                    //$row["id"] . "</td><td>" .
-                    //$row["identifier"] . "</td><td>" .
-                    $row["name"] . "</td><td>" .
-                    $row["dob"] . "</td><td>" .
-                    $row["identified_gender"] . "</td><td>" .
-                    $row["nationality"] . "</td></tr>";
-            }
-        }
-        if(isset($_POST['submit'])){
-            //$id = $_POST['id'];
-            //$identifier = $_POST['identifier'];
-            $name = $_POST['name'];
-            //$dob = $_POST['dob'];
-            //$identified_gender = $_POST['identified_gender'];
-
-            if($name != "") {
-                $query = "SELECT * FROM athletes WHERE name LIKE '%$name%'";
-                $result = pg_query($conn, $query);
-                displayTable($result);
-            }
-            else {
-                $query = "SELECT * FROM athletes ORDER BY name ASC";
-                $result = pg_query($conn, $query);
-                displayTable($result);
-            }
-        }
-        ?>
-    </table>
+<div class="container">
+    <div class="row justify-content-center text-center">
+        <form action="competitions.php" method="post">
+            <div class="form-group">
+                <input type="submit" name="competitions" class="btn-dark btn-lg" value="Competitions">
+            </div>
+        </form>
+    </div>
 </div>
 </body>
 </html>
