@@ -18,3 +18,5 @@ Steps:
 4. git clone this git repo into the `C:\xampp\htdocs` directory.
 
 5. Open the XAMPP control panel and start the apache server.
+
+6. Go to `localhost/projet_leaderboard/` on your web browser.
