@@ -17,6 +17,18 @@
         </form>
     </div>
 </div>
+<div class="container mb-5 w-100">
+    <div class="row dropdown">
+        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown button
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Competition 1</a>
+            <a class="dropdown-item" href="#">Competition 2</a>
+            <a class="dropdown-item" href="#">Competition 3</a>
+        </div>
+    </div>
+</div>
 <div class="row container-fluid w-75 m-auto">
     <table class="table table-striped table-hover">
         <thead class="thead-dark">
