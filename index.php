@@ -16,9 +16,6 @@
                     <input type="text" class="form-control" name="name" placeholder="Filter by name" aria-label="...">
             </div>
             <div class="form-group w-100">
-                <input class="form-control" name="date" placeholder="Filter by date " aria-label="...">
-            </div>
-            <div class="form-group w-100">
                 <input type="submit" name="submit" class="btn-dark" >
             </div>
         </form>
@@ -39,6 +36,10 @@
         /**
          * @var string $conn
          */
+        //$orderType = ($_GET['order'] == 'desc')? 'asc' : 'desc';
+        //$orderType = 'ASC';
+        //$sort_arrow = 'includes/media/sort_arrow.svg';
+
         function displayTable($res){
             while ($row = pg_fetch_assoc($res)) {
                 echo "<tr><td>" .
@@ -58,12 +59,12 @@
             //$identified_gender = $_POST['identified_gender'];
 
             if($name != "") {
-                $query = "SELECT * FROM athletes WHERE name LIKE'%$name%'";
+                $query = "SELECT * FROM athletes WHERE name LIKE '%$name%'";
                 $result = pg_query($conn, $query);
                 displayTable($result);
             }
             else {
-                $query = "SELECT * FROM athletes";
+                $query = "SELECT * FROM athletes ORDER BY name ASC";
                 $result = pg_query($conn, $query);
                 displayTable($result);
             }
