@@ -48,7 +48,13 @@
         if(isset($_POST['submit'])){
             $name = $_POST['name'];
             if($name != "") {
-                $query = "SELECT * FROM athletes WHERE name LIKE lower('%$name%')";
+                $query = "SELECT a.name, a.identified_gender as gender ,a.nationality,
+                        (SELECT points FROM register r where competitions_id=1 AND r.athletes_id=a.id) AS points,
+                        (SELECT main FROM event_score e where events_name='Event 1' AND e.athlete_id= a.id)  AS event1,
+                        (SELECT main FROM event_score e where events_name='Event 2'  AND e.athlete_id= a.id)AS event2
+                        FROM athletes a
+                        WHERE a.name LIKE lower('%$name%')
+                        ORDER BY points ASC, event1 ASC, event2 ASC ";
                 $result = pg_query($conn, $query);
                 displayTable($result);
             }
